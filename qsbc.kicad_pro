@@ -389,7 +389,9 @@
     "pinned_footprint_libs": [
       "qsbc"
     ],
-    "pinned_symbol_libs": []
+    "pinned_symbol_libs": [
+      "qsbc"
+    ]
   },
   "meta": {
     "filename": "qsbc.kicad_pro",
@@ -536,7 +538,7 @@
     ],
     [
       "84b83f54-5bc0-485b-85b5-5fe5cb64a272",
-      "i.MX8MN Power"
+      "i.MX8MM Power"
     ],
     [
       "7e96247a-73a8-4285-8d57-0f54f716d65f",
