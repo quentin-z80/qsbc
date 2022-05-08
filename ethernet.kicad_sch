@@ -2473,7 +2473,7 @@
   (symbol (lib_id "qsbc:MIMX8MM6DVTLZAA") (at 114.3 90.17 0) (unit 7)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 3ff70096-72c2-4bbd-9af0-0b28f064dc5e)
-    (property "Reference" "U?" (id 0) (at 114.3 71.12 0))
+    (property "Reference" "U1" (id 0) (at 114.3 71.12 0))
     (property "Value" "MIMX8MM6DVTLZAA" (id 1) (at 114.3 73.66 0))
     (property "Footprint" "qsbc:SOT1967-1" (id 2) (at 118.11 280.67 0)
       (effects (font (size 1.27 1.27)) (justify left bottom) hide)
