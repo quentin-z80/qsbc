@@ -5096,7 +5096,7 @@
     (property "Reference" "D?" (id 0) (at 270.51 108.2674 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "LED_YELLOW" (id 1) (at 270.51 110.8074 90)
+    (property "Value" "LED_Yellow" (id 1) (at 270.51 110.8074 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "LED_SMD:LED_0603_1608Metric" (id 2) (at 266.7 107.95 0)

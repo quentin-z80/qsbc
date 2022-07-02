@@ -389,9 +389,7 @@
     "pinned_footprint_libs": [
       "qsbc"
     ],
-    "pinned_symbol_libs": [
-      "qsbc"
-    ]
+    "pinned_symbol_libs": []
   },
   "meta": {
     "filename": "qsbc.kicad_pro",
@@ -567,10 +565,6 @@
     [
       "72fecb43-6801-4e39-8c32-ec26e0542147",
       "PCIe"
-    ],
-    [
-      "1cbad880-9fe3-40d9-9fb1-a0e892f12754",
-      "UART"
     ]
   ],
   "text_variables": {}
