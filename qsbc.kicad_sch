@@ -1797,6 +1797,9 @@
     (path "/72fecb43-6801-4e39-8c32-ec26e0542147/e0d79396-8c06-4a6c-bdf6-66ab88648a7b"
       (reference "#PWR0146") (unit 1) (value "GND") (footprint "")
     )
+    (path "/7e96247a-73a8-4285-8d57-0f54f716d65f/0a809058-f42f-48e8-bc3e-1aa8e0288283"
+      (reference "#PWR?") (unit 1) (value "GND") (footprint "")
+    )
     (path "/ef57cfb9-1220-4106-9f4b-c7611d652afc/9948074f-ce2e-4fa9-9548-c9bcf5e05b6e"
       (reference "C1") (unit 1) (value "0.22uF") (footprint "Capacitor_SMD:C_0201_0603Metric")
     )
@@ -2276,6 +2279,12 @@
     )
     (path "/72fecb43-6801-4e39-8c32-ec26e0542147/be5ed014-190d-4d3a-9a05-b9e4c7c324e8"
       (reference "C160") (unit 1) (value "0.1uF") (footprint "Capacitor_SMD:C_0402_1005Metric")
+    )
+    (path "/7e96247a-73a8-4285-8d57-0f54f716d65f/b752e017-135a-4a33-8e21-a819e33aa954"
+      (reference "C?") (unit 1) (value "1uF") (footprint "Capacitor_SMD:C_0402_1005Metric")
+    )
+    (path "/7e96247a-73a8-4285-8d57-0f54f716d65f/d5767c9a-a191-45eb-a615-5219cbb00c4b"
+      (reference "C?") (unit 1) (value "1uF") (footprint "Capacitor_SMD:C_0402_1005Metric")
     )
     (path "/35af9dad-35b7-42c4-b835-c17a87e64e5a/f4ea2f03-2a57-40cc-a039-d0ea6b3c8d84"
       (reference "D1") (unit 1) (value "LED_Yellow") (footprint "LED_SMD:LED_0603_1608Metric")
@@ -2799,6 +2808,9 @@
     (path "/34bccd39-4b2a-4598-80fe-08cfc5b119de/3515f131-bc2c-42e5-8b9f-3440f5cb90b7"
       (reference "TP28") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_Pad_D1.0mm")
     )
+    (path "/7e96247a-73a8-4285-8d57-0f54f716d65f/48dff1c0-42d3-4b75-82a2-34bf7b4afe73"
+      (reference "TP?") (unit 1) (value "TestPoint") (footprint "TestPoint:TestPoint_Pad_D1.0mm")
+    )
     (path "/34bccd39-4b2a-4598-80fe-08cfc5b119de/2cda1c19-f48e-4aab-b64b-652849aa66cf"
       (reference "U1") (unit 1) (value "MIMX8MM6DVTLZAA") (footprint "qsbc:SOT1967-1")
     )
@@ -2951,6 +2963,9 @@
     )
     (path "/72fecb43-6801-4e39-8c32-ec26e0542147/476d1096-5b81-4f7a-8fb6-2ae5e2d0ae27"
       (reference "U33") (unit 1) (value "74LVC1G07") (footprint "Package_TO_SOT_SMD:SOT-23-5")
+    )
+    (path "/7e96247a-73a8-4285-8d57-0f54f716d65f/68a7dae9-88aa-473d-bd45-02a7865d76f9"
+      (reference "U?") (unit 1) (value "NCP718BSN250T1G") (footprint "Package_TO_SOT_SMD:SOT-23-5")
     )
     (path "/7e96247a-73a8-4285-8d57-0f54f716d65f/57cd27e3-fcea-48af-a920-cc0503a82f25"
       (reference "Y1") (unit 1) (value "Crystal") (footprint "Crystal:Crystal_SMD_2012-2Pin_2.0x1.2mm")
