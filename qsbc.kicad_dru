@@ -1,0 +1,15 @@
+(version 1)
+
+(rule "50R Outer Layers"
+	(condition "A.NetClass == '50R'")
+	(layer outer)
+	(constraint track_width (min 0.11mm) (opt 0.11mm) (max 0.11mm)))
+
+(rule "50R Layer 3 and 6"
+	(condition "A.NetClass == '50R'")
+	(condition "A.Layer == 'In2.Cu' || A.Layer == 'In5.Cu'")
+	(constraint track_width (min 0.08mm) (opt 0.08mm) (max 0.08mm)))
+
+(rule "IMX8MM fanout"
+	(condition "A.insideFrontCourtyard('U1')")
+	(constraint track_width (min 0.0762mm)))
