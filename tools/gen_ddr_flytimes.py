@@ -1,171 +1,129 @@
 import pcbnew
-import regex
-import pprint
 
 from openpyxl import Workbook, load_workbook
 
-groups = [
-    {"name": "Clocks", "regex": "^.*DRAM_CK_[N|P]$", "nets": []},
-    {"name": "Address, Command and Control", "regex": "^.*DRAM_((A0*[0-9]+)|(BA[0-1])|(RAS)|(CAS)|(WE_B))$", "nets": []},
-    {"name": "Byte Group 1", "regex": "^.*DRAM_((D0[0-7])|(DQM0)|(SDQS0_(P|N)))$", "nets": []},
-    {"name": "Byte Group 2", "regex": "^.*DRAM_((D0[8-9])|(D1[0-5])|(DQM1)|(SDQS1_(P|N)))$", "nets": []},
-    {"name": "Control", "regex": "^.*DRAM_((CS0)|(CKE)|(ODT))$", "nets": []},
-]
+NET_PREFIX = "/DDR/"
 
 #0 = name
 #1 = ps / cm
-layers = {
+layer_delay = {
     "F.Cu": 58.5680,
     "In2.Cu": 70.7803,
     "B.Cu": 58.5680
 }
 
-package_delays = {
-
-    "/DDR/DRAM_A00": 56.5,
-    "/DDR/DRAM_A01": 42.2,
-    "/DDR/DRAM_A02": 41.8,
-    "/DDR/DRAM_A03": 22.4,
-    "/DDR/DRAM_A04": 43.1,
-    "/DDR/DRAM_A05": 32.0,
-    "/DDR/DRAM_A06": 33.8,
-    "/DDR/DRAM_A07": 54.8,
-    "/DDR/DRAM_A08": 59.7,
-    "/DDR/DRAM_A09": 35.8,
-    "/DDR/DRAM_A10": 59.5,
-    "/DDR/DRAM_A11": 29.1,
-    "/DDR/DRAM_A12": 39.6,
-    "/DDR/DRAM_A13": 31.9,
-    "/DDR/DRAM_A14": 43.1,
-    "/DDR/DRAM_A15": 38.6,
-    "/DDR/DRAM_A16": 51.2,
-
-    "/DDR/DRAM_D00": 47.2,
-    "/DDR/DRAM_D01": 43.0,
-    "/DDR/DRAM_D02": 54.6,
-    "/DDR/DRAM_D03": 51.7,
-    "/DDR/DRAM_D04": 59.9,
-    "/DDR/DRAM_D05": 58.1,
-    "/DDR/DRAM_D06": 64.6,
-    "/DDR/DRAM_D07": 51.4,
-    "/DDR/DRAM_D08": 45.0,
-    "/DDR/DRAM_D09": 50.1,
-    "/DDR/DRAM_D10": 46.2,
-    "/DDR/DRAM_D11": 47.2,
-    "/DDR/DRAM_D12": 40.3,
-    "/DDR/DRAM_D13": 48.8,
-    "/DDR/DRAM_D14": 58.4,
-    "/DDR/DRAM_D15": 52.4,
-
-    "/DDR/DRAM_DQS0_N": 58.9,
-    "/DDR/DRAM_DQS0_P": 59.0,
-    "/DDR/DRAM_DQS1_N": 47.2,
-    "/DDR/DRAM_DQS1_P": 48.6,
-
-    "/DDR/DRAM_DMI0": 57.2,
-    "/DDR/DRAM_DMI1": 58.6,
-    "/DDR/DRAM_CKE": 51.2,
-    "/DDR/DRAM_CK_P": 39.1,
-    "/DDR/DRAM_CK_N": 39.4,
-    "/DDR/DRAM_BG0": 41.1,
-    "/DDR/DRAM_BG1": 41.2,
-    "/DDR/~\{DRAM_CS0\}": 35.9,
-    "/DDR/~\{DRAM_ACT\}": 45.7,
-    "/DDR/DRAM_BA0": 34.4,
-    "/DDR/DRAM_BA1": 53.4,
-    "/DDR/DRAM_ODT": 26.5,
-    "/DDR/DRAM_PARITY": 29.0,
-    "/DDR/~\{DRAM_RESET\}": 38.1,
-    "/DDR/~\{DRAM_ALERT\}": 36.0
+via_delays = {
+    "F.Cu_In2.Cu": 3.4740,
+    "F.Cu_B.Cu": 23.9325
 }
 
-class TrackNoGroupException(Exception):
-    pass
+via_lengths = {
+    "F.Cu_In2.Cu": 0.225,
+    "F.Cu_B.Cu": 1.2
+}
 
 def mm_to_ps(layer: str, mm: float) -> float:
-    return mm * (layers[layer] / 10)
+    return mm * (layer_delay[layer] / 10)
 
-try:
-    wb = load_workbook("DDR_flytimes.xlsx")
-except FileNotFoundError:
-    print("DDR_flytimes.xlsx not found")
-    wb = Workbook()
-    wb.save("DDR_flytimes.xlsx")
-
-def get_track_group(track) -> str:
+def get_track_flytime(tracks, netname):
+    """returns the flytime of all tracks in the net
     """
-    Returns the group name of a track
-    raises exception if track not in any group
-    """
-    #print(track.GetNetname())
-    for group in groups:
-        if regex.match(group["regex"], track.GetNetname()):
-            return group["name"]
-    raise TrackNoGroupException("Track not in any group")
-
-def add_segment(group_name, netname, flytime):
-    for group in groups:
-        if group["name"] == group_name:
-            for net in group["nets"]:
-                if net["name"] == netname:
-                    net["track_flytime"] += flytime
-                    return
-            group["nets"].append({"name": netname, "track_flytime": flytime})
-
-def get_flytimes(pcb):
-
-    pcb.BuildListOfNets()
-    tracks = pcb.GetTracks()
-
+    flytime = 0
     for track in tracks:
-        if track.GetNet() is None:
-            continue
-        try:
-            group_name = get_track_group(track)
-        except TrackNoGroupException:
-            continue
-
-        if type(track) == pcbnew.PCB_VIA:
-            #TODO: handle vias
-            continue
-        else:
-            length = pcbnew.ToMM(track.GetLength())
-            netname = track.GetNetname()
+        if track.GetNet().GetNetname() == netname and type(track) == pcbnew.PCB_TRACK:
             layer = track.GetLayerName()
-            flytime = mm_to_ps(layer, length)
-            #print(f"{layer} {netname} {length}mm {flytime}ps ")
-            add_segment(group_name, netname, flytime)
+            length = pcbnew.ToMM(track.GetLength())
+            flytime += mm_to_ps(layer, length)
+    return flytime
 
-def write_flytimes(wb):
-    ws = wb.active
-    ws.title = "DDR"
-    ws.cell(row=1, column=1).value = "Group"
-    ws.cell(row=1, column=2).value = "Net"
-    ws.cell(row=1, column=3).value = "Vias"
-    ws.cell(row=1, column=4).value = "Track Flytime"
-    ws.cell(row=1, column=5).value = "Via Delay"
-    ws.cell(row=1, column=6).value = "Package Delay"
-    ws.cell(row=1, column=7).value = "Extra Delay"
-    ws.cell(row=1, column=8).value = "Total Delay"
-    row = 2
-    for group in groups:
-        for net in group["nets"]:
-            ws.cell(row=row, column=1).value = group["name"]
-            ws.cell(row=row, column=2).value = net["name"].removeprefix("/DDR/")
-            ws.cell(row=row, column=4).value = round(net["track_flytime"], 1)
-            #TODO: calculate via delay
-            ws.cell(row=row, column=5).value = 0
-            if net["name"] in package_delays:
-                ws.cell(row=row, column=6).value = round(package_delays[net["name"]], 1)
-            else:
-                ws.cell(row=row, column=6).value = 0
+def get_net_layers(tracks, netname):
+    """returns a list of layers used by the net
+    """
+    layers = []
+    for track in tracks:
+        if track.GetNet().GetNetname() == netname and type(track) == pcbnew.PCB_TRACK:
+            layer = track.GetLayerName()
+            if layer not in layers:
+                layers.append(layer)
+    return layers
 
-            ws.cell(row=row, column=8).value = round(net["track_flytime"] + 0 + package_delays[net["name"]] + ws.cell(row=row, column=7).value, 1)
-            row += 1
+def get_via_count(tracks, netname):
+    """returns the number of vias in the net
+    """
+    via_count = 0
+    for track in tracks:
+        if track.GetNet().GetNetname() == netname and type(track) == pcbnew.PCB_VIA:
+            via_count += 1
+    return via_count
+
+def get_via_delay(tracks, netname):
+    """returns the via delay of the net
+    """
+    via_delay = 0
+    vias = get_via_count(tracks, netname)
+    layers = get_net_layers(tracks, netname)
+    for i in range(len(layers)-1):
+        via_delay += via_delays[layers[i] + "_" + layers[i+1]]
+    return via_delay*2
+
+def get_track_length(tracks, netname):
+    """returns the length of all tracks in the net
+    """
+    length = 0
+    for track in tracks:
+        if track.GetNet().GetNetname() == netname and type(track) == pcbnew.PCB_TRACK:
+            length += pcbnew.ToMM(track.GetLength())
+    return length
+
+def get_via_length(tracks, netname):
+    """returns the length of all vias in the net
+    """
+    length = 0
+    vias = get_via_count(tracks, netname)
+    layers = get_net_layers(tracks, netname)
+    for i in range(len(layers)-1):
+        length += via_lengths[layers[i] + "_" + layers[i+1]]
+    return length*2
+
+def update_row(row, tracks):
+    netname = NET_PREFIX + row[1].value
+
+    vias = get_via_count(tracks, netname)
+    row[2].value = vias
+
+    track_flytime = get_track_flytime(tracks, netname)
+    row[3].value = round(track_flytime, 1)
+
+    via_delay = get_via_delay(tracks, netname)
+    row[4].value = round(via_delay, 1)
+
+    package_delay = row[5].value
+    extra_delay = row[6].value
+
+    total_delay = track_flytime + package_delay + extra_delay
+    row[7].value = round(total_delay, 1)
+
+    layers = get_net_layers(tracks, netname)
+    row[8].value = ", ".join(layers)
+
+    track_length = get_track_length(tracks, netname)
+    row[9].value = round(track_length, 2)
+
+    via_length = get_via_length(tracks, netname)
+    row[10].value = round(via_length, 2)
+
+    total_length = track_length + via_length
+    row[11].value = round(total_length, 2)
+
+def update_flytimes(ws, pcb, tracks):
+    for row in ws.iter_rows(min_row=2, max_row=ws.max_row, min_col=1, max_col=ws.max_column):
+        update_row(row, tracks)
 
 if __name__ == "__main__":
+    wb = load_workbook("DDR_flytimes.xlsx")
+    ws = wb.active
     pcb = pcbnew.LoadBoard("../qsbc.kicad_pcb")
-    get_flytimes(pcb)
-    pprint.pprint(groups)
-    write_flytimes(wb)
+    pcb.BuildListOfNets()
+    tracks = pcb.GetTracks()
+    update_flytimes(ws, pcb, tracks)
     wb.save("DDR_flytimes.xlsx")

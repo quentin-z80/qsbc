@@ -39,3 +39,6 @@ gerbers
 
 # tools
 tools/qspi-header/*.bin
+
+# LibreOffice
+.~lock.*#
