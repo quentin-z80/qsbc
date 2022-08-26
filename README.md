@@ -8,6 +8,7 @@ Specs:
 - 2GB LPDDR4
 - 4MB QSPI Flash
 - 64GB eMMC
+- M.2 2230 Slot
 - MicroSD card slot
 - 2x USB Type-C DRP
 - 10/100/1000 Ethernet
