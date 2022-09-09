@@ -1,0 +1,16 @@
+{
+    "tracks": {
+        "F.Cu": [
+            {"width": 0.11, "ps_per_cm": 58.5680}
+        ],
+        "In2.Cu": [
+            {"width": 0.08, "ps_per_cm": 70.7803}
+        ],
+        "B.Cu": [
+            {"width": 0.11, "ps_per_cm": 58.5680}
+        ]
+    },
+    "vias": [
+        {"width": 0.4, "drill": 0.2, "length": 1.2, "delay":}
+    ]
+}

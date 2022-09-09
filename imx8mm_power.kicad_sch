@@ -9964,7 +9964,7 @@
     (property "Value" "2200pF" (id 1) (at 234.95 248.9199 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (id 2) (at 232.1052 251.46 0)
+    (property "Footprint" "qsbc:C_0201_0603Metric" (id 2) (at 232.1052 251.46 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 231.14 247.65 0)
