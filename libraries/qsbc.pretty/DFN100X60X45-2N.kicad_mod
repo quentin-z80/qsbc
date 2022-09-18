@@ -1,4 +1,5 @@
-(footprint "DFN100X60X45-2N" (version 20211014) (generator pcbnew) (layer "F.Cu")
+(footprint "DFN100X60X45-2N" (version 20211014) (generator pcbnew)
+  (layer "F.Cu")
   (tedit 618C11AF)
   (attr through_hole)
   (fp_text reference "REF**" (at 0.141 -0.8282) (layer "F.SilkS")
@@ -20,4 +21,9 @@
   (fp_line (start 0.875 -0.625) (end 0.875 0.625) (layer "F.CrtYd") (width 0.05) (tstamp e9337ed1-24ea-41f9-bdd1-90f481525683))
   (pad "1" smd rect (at -0.35 0) (size 0.4 0.7) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp b4b18ae0-ab89-4939-842b-c5cecf8d6105))
   (pad "2" smd rect (at 0.35 0) (size 0.4 0.7) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp c0ebd6a7-eaf0-4975-86e4-3b59308c19cb))
+  (model "${KIPRJMOD}/libraries/3dmodels/DFN100X60X45-2N.step"
+    (offset (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz -90 0 0))
+  )
 )

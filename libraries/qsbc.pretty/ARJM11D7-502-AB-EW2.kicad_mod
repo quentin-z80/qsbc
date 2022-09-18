@@ -40,9 +40,9 @@
   (pad "14" thru_hole circle (at 1.07 10.92) (size 1.7 1.7) (drill 1.02) (layers *.Cu *.Mask) (tstamp 1d869511-c718-4141-8e4f-532a4162586f))
   (pad "15" thru_hole circle (at -13.465 3.3) (size 2.8 2.8) (drill 1.6) (layers *.Cu *.Mask) (tstamp cd89a08a-fdae-449b-a023-b701a1004f88))
   (pad "16" thru_hole circle (at 2.035 3.298) (size 2.8 2.8) (drill 1.6) (layers *.Cu *.Mask) (tstamp 486c1bdf-9eec-4b0d-a38e-004ba4a36d1a))
-  (model "${KIPRJMOD}/libraries/dNAS-CM4/3dmodels/ARJM11D7-502-AB-EW2.stp"
-    (offset (xyz 0 0 0))
+  (model "${KIPRJMOD}/libraries/3dmodels/ARJM11D7-502-AB-EW2.STEP"
+    (offset (xyz -5.75 -6.34 0))
     (scale (xyz 1 1 1))
-    (rotate (xyz 0 0 0))
+    (rotate (xyz -90 0 0))
   )
 )

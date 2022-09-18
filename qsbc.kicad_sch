@@ -2803,16 +2803,16 @@
       (reference "H5") (unit 1) (value "MountingHole_Pad") (footprint "Mounting_Wuerth:Mounting_Wuerth_WA-SMSI-M3_H2.5mm_9774025360")
     )
     (path "/35af9dad-35b7-42c4-b835-c17a87e64e5a/7efbfb7f-7141-4fe0-9f01-e17c843fe1b8"
-      (reference "J1") (unit 1) (value "USB_C_Receptacle_USB2.0") (footprint "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12")
+      (reference "J1") (unit 1) (value "USB_C_Receptacle_USB2.0") (footprint "qsbc:USB_C_Receptacle_USB4105-GF-A")
     )
     (path "/35af9dad-35b7-42c4-b835-c17a87e64e5a/230871b8-f384-4bf5-8ad6-92e950566f29"
-      (reference "J2") (unit 1) (value "USB_C_Receptacle_USB2.0") (footprint "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12")
+      (reference "J2") (unit 1) (value "USB_C_Receptacle_USB2.0") (footprint "qsbc:USB_C_Receptacle_USB4105-GF-A")
     )
     (path "/35af9dad-35b7-42c4-b835-c17a87e64e5a/8ddbfd67-88a6-4f98-b1a9-5815261fa7f0"
       (reference "J3") (unit 1) (value "USB_C_Receptacle_USB2.0") (footprint "qsbc:KUSBX-SL-CS1N14-B")
     )
     (path "/35af9dad-35b7-42c4-b835-c17a87e64e5a/17e86bc4-7194-416b-8753-7b066e68ab01"
-      (reference "J4") (unit 1) (value "USB_C_Receptacle_USB2.0") (footprint "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12")
+      (reference "J4") (unit 1) (value "USB_C_Receptacle_USB2.0") (footprint "qsbc:USB_C_Receptacle_USB4105-GF-A")
     )
     (path "/5d9eebb8-e3be-4676-9eb3-56276e862bd5/1c337a7a-ae83-4d27-95eb-66b7e4bfa03e"
       (reference "J5") (unit 1) (value "ARJM11D7-502-AB-EW2") (footprint "qsbc:ARJM11D7-502-AB-EW2")
