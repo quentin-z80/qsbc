@@ -2947,10 +2947,10 @@
       (reference "R32") (unit 1) (value "1M") (footprint "qsbc:R_0402_1005Metric")
     )
     (path "/35af9dad-35b7-42c4-b835-c17a87e64e5a/a8004655-c57e-4081-8847-4161896c3191"
-      (reference "R33") (unit 1) (value "200R") (footprint "qsbc:R_0201_0603Metric")
+      (reference "R33") (unit 1) (value "200R") (footprint "qsbc:R_0402_1005Metric")
     )
     (path "/35af9dad-35b7-42c4-b835-c17a87e64e5a/ee2d49cc-8a7a-4f6d-b2c3-c866a5b4876a"
-      (reference "R34") (unit 1) (value "200R") (footprint "qsbc:R_0201_0603Metric")
+      (reference "R34") (unit 1) (value "200R") (footprint "qsbc:R_0402_1005Metric")
     )
     (path "/35af9dad-35b7-42c4-b835-c17a87e64e5a/7aa20dcb-c1c8-42b6-af49-0a78de88d0e1"
       (reference "R35") (unit 1) (value "30K") (footprint "qsbc:R_0201_0603Metric")
