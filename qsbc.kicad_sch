@@ -2166,9 +2166,6 @@
     (path "/84b83f54-5bc0-485b-85b5-5fe5cb64a272/5d7bb7b1-ec94-443c-8321-fa8cc29a24b5"
       (reference "C18") (unit 1) (value "1uF") (footprint "qsbc:C_0201_0603Metric")
     )
-    (path "/84b83f54-5bc0-485b-85b5-5fe5cb64a272/ff984c73-1e4d-464c-bb53-0842f0cac3b1"
-      (reference "C19") (unit 1) (value "1uF") (footprint "qsbc:C_0201_0603Metric")
-    )
     (path "/84b83f54-5bc0-485b-85b5-5fe5cb64a272/785c007c-5ff8-47b1-862e-8f4441aabf63"
       (reference "C20") (unit 1) (value "1uF") (footprint "qsbc:C_0201_0603Metric")
     )
