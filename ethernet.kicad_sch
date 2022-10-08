@@ -6669,7 +6669,7 @@
     (property "Value" "0.01uF" (id 1) (at 303.53 73.6599 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (id 2) (at 300.6852 76.2 0)
+    (property "Footprint" "qsbc:C_0603_1608Metric" (id 2) (at 300.6852 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 299.72 72.39 0)
