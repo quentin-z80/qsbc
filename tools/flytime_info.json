@@ -11,6 +11,7 @@
         ]
     },
     "vias": [
-        {"width": 0.4, "drill": 0.2, "length": 1.2, "delay":}
+        {"width": 0.4, "drill": 0.2, "start": "F.Cu", "end": "B.Cu", "height": 1.2, "delay": 18.0},
+        {"width": 0.4, "drill": 0.2, "start": "F.Cu", "end": "In2.Cu", "height": 0.2, "delay": 2.3}
     ]
 }

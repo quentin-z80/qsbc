@@ -42,3 +42,6 @@ tools/qspi-header/*.bin
 
 # LibreOffice
 .~lock.*#
+
+# Python
+__pycache__
