@@ -2,19 +2,26 @@
 
 (rule "50R Outer Layers"
 	(constraint track_width (min 0.11mm) (opt 0.11mm) (max 0.11mm))
-	(condition "A.NetClass == '50R'")
+	(condition "A.NetClass == '50R' || A.NetClass == 'DDR_50R'")
 	(layer outer)
 )
 
 (rule "50R Layer 3"
 	(constraint track_width (min 0.08mm) (opt 0.08mm) (max 0.08mm))
-	(condition "A.NetClass == '50R'")
+	(condition "A.NetClass == '50R' || A.NetClass == 'DDR_50R'")
 	(layer In2.Cu)
+)
+
+(rule "DDR Clearance"
+	(condition "A.NetClass == 'DDR_50R'")
+	(condition "A.Type == 'Track'")
+	(constraint clearance (min 0.2mm))
 )
 
 (rule "BGA fanout"
 	(constraint track_width (min 0.0762mm))
 	(constraint clearance (min 0.0762mm))
+	(layer "F.Cu")
 	(condition "A.NetClass == '50R'")
 	(condition "A.insideFrontCourtyard('U1') || A.insideFrontCourtyard('U29') || A.insideFrontCourtyard('U36')")
 )
