@@ -13,15 +13,12 @@
 )
 
 (rule "DDR Clearance"
-	(condition "A.NetClass == 'DDR_50R'")
-	(condition "A.Type == 'Track'")
 	(constraint clearance (min 0.2mm))
+	(condition "A.NetClass == 'DDR_50R' && B.NetClass == 'DDR_50R' && A.Type == 'Track' && B.Type == 'Track'")
 )
 
 (rule "BGA fanout"
 	(constraint track_width (min 0.0762mm))
 	(constraint clearance (min 0.0762mm))
-	(layer "F.Cu")
-	(condition "A.NetClass == '50R'")
-	(condition "A.insideFrontCourtyard('U1') || A.insideFrontCourtyard('U29') || A.insideFrontCourtyard('U36')")
+	(condition "A.insideArea('BGA Fanout') || B.insideArea('BGA Fanout')")
 )

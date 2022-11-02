@@ -2,13 +2,16 @@
     "tracks": {
         "F.Cu": [
             {"width": 0.11, "ps_per_cm": 58.5680},
-            {"width": 0.0762, "ps_per_cm": 57.1154}
+            {"width": 0.0762, "ps_per_cm": 57.1154},
+            {"width": 0.08, "ps_per_cm": 57.2893}
         ],
         "In2.Cu": [
             {"width": 0.08, "ps_per_cm": 70.7803}
         ],
         "B.Cu": [
-            {"width": 0.11, "ps_per_cm": 58.5680}
+            {"width": 0.11, "ps_per_cm": 58.5680},
+            {"width": 0.0762, "ps_per_cm": 57.1154},
+            {"width": 0.08, "ps_per_cm": 57.2893}
         ]
     },
     "vias": [
