@@ -3513,14 +3513,14 @@
     (path "/5d9eebb8-e3be-4676-9eb3-56276e862bd5/d139cfc6-e977-4043-85d0-a07c6e671710"
       (reference "U23") (unit 1) (value "TPD4E02B04") (footprint "Package_SON:USON-10_2.5x1.0mm_P0.5mm")
     )
-    (path "/996c4a6c-0366-4ef4-ac11-a39cf582fa19/a0fcf8dd-75e9-4af5-a79e-63544e891df1"
-      (reference "U24") (unit 1) (value "TPD4EUSB30") (footprint "Package_SON:USON-10_2.5x1.0mm_P0.5mm")
+    (path "/996c4a6c-0366-4ef4-ac11-a39cf582fa19/11685202-e4e3-4b34-b994-dcc31beef6f3"
+      (reference "U24") (unit 1) (value "TPD4E02B04") (footprint "Package_SON:USON-10_2.5x1.0mm_P0.5mm")
     )
     (path "/996c4a6c-0366-4ef4-ac11-a39cf582fa19/70a88840-0f96-46e1-8d4a-f429b01a5869"
       (reference "U25") (unit 1) (value "W25Q32JWZP") (footprint "Package_SON:WSON-8-1EP_6x5mm_P1.27mm_EP3.4x4.3mm")
     )
-    (path "/996c4a6c-0366-4ef4-ac11-a39cf582fa19/6e644eca-e907-4e9c-a090-0dc2cf6afd0d"
-      (reference "U26") (unit 1) (value "TPD4EUSB30") (footprint "Package_SON:USON-10_2.5x1.0mm_P0.5mm")
+    (path "/996c4a6c-0366-4ef4-ac11-a39cf582fa19/bac40219-cbfc-46a5-82ea-a3b9a22e6dd3"
+      (reference "U26") (unit 1) (value "TPD4E02B04") (footprint "Package_SON:USON-10_2.5x1.0mm_P0.5mm")
     )
     (path "/996c4a6c-0366-4ef4-ac11-a39cf582fa19/7774b417-efa6-4ce4-af1f-f8d1037cf405"
       (reference "U27") (unit 1) (value "D5V0H1B2LP") (footprint "qsbc:DFN100X60X45-2N")
