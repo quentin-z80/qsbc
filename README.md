@@ -11,8 +11,10 @@ Specs:
 - M.2 2230 Slot
 - MicroSD card slot
 - 2x USB Type-C DRP
-- 10/100/1000 Ethernet
 - USB Type-C Power in
+- USB Type-C debug port
+- 10/100/1000 Ethernet
+- Displayport output
 
 #![](img/qsbc_top.png)
 #![](img/qsbc_bottom.png)
