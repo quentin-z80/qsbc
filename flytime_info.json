@@ -1,21 +1,23 @@
 {
     "tracks": {
         "F.Cu": [
-            {"width": 0.11, "ps_per_cm": 58.5680},
-            {"width": 0.0762, "ps_per_cm": 57.1154},
-            {"width": 0.08, "ps_per_cm": 57.2893}
+            {"width": 0.11, "ps_per_cm": 55.9385},
+            {"width": 0.0762, "ps_per_cm": 54.7698 },
+            {"width": 0.08, "ps_per_cm": 54.9188},
+            {"width": 0.1, "ps_per_cm": 55.6258}
         ],
         "In2.Cu": [
-            {"width": 0.08, "ps_per_cm": 70.7803}
+            {"width": 0.08, "ps_per_cm": 67.0651}
         ],
         "B.Cu": [
-            {"width": 0.11, "ps_per_cm": 58.5680},
-            {"width": 0.0762, "ps_per_cm": 57.1154},
-            {"width": 0.08, "ps_per_cm": 57.2893}
+            {"width": 0.11, "ps_per_cm": 55.9385},
+            {"width": 0.0762, "ps_per_cm": 54.7698 },
+            {"width": 0.08, "ps_per_cm": 54.9188},
+            {"width": 0.1, "ps_per_cm": 55.6258}
         ]
     },
     "vias": [
-        {"width": 0.4, "drill": 0.2, "start": "F.Cu", "end": "B.Cu", "height": 1.2, "delay": 18.0},
-        {"width": 0.4, "drill": 0.2, "start": "F.Cu", "end": "In2.Cu", "height": 0.2, "delay": 2.3}
+        {"width": 0.4, "drill": 0.2, "start": "F.Cu", "end": "B.Cu", "height": 1.2, "delay": 15.9187},
+        {"width": 0.4, "drill": 0.2, "start": "F.Cu", "end": "In2.Cu", "height": 0.2, "delay": 2.0051}
     ]
 }
