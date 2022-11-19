@@ -4211,6 +4211,11 @@
     (uuid fd9f34a5-ad8c-4d83-bd47-2a6f3ee556f7)
   )
 
+  (text "Also support MT53D512M32D2DS\nfor 2GB RAM" (at 213.36 228.6 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid b7b0ee81-6d94-4716-af22-9d9f29e29582)
+  )
+
   (label "DRAM_D04_B" (at 271.78 57.15 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 01c21175-9016-46d5-83e5-b53e54d90483)
@@ -5413,7 +5418,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 41.91 176.53 0) (mirror y) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid 3d3b6ace-ec6a-4613-bac2-7bbbfe18b0eb)
     (property "Reference" "TP1" (id 0) (at 48.26 172.72 0))
     (property "Value" "TestPoint" (id 1) (at 48.26 175.26 0))
@@ -5647,7 +5652,7 @@
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid fb06c466-11dd-4106-bf14-96149c3b3292)
     (property "Reference" "U2" (id 0) (at 238.76 30.48 0))
-    (property "Value" "MT53D512M32D2DS" (id 1) (at 238.76 33.02 0))
+    (property "Value" "MT53D1024M32D4DT" (id 1) (at 238.76 33.02 0))
     (property "Footprint" "Package_BGA:BGA-200_10.0x14.5mm_Layout12x22_P0.80x0.65mm" (id 2) (at 238.76 229.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )

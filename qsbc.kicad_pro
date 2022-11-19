@@ -45,7 +45,7 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.19999999999999998
+          "min_clearance": 0.127
         }
       },
       "diff_pair_dimensions": [
@@ -683,9 +683,7 @@
           "/USB/USB3_DN",
           "/USB/USB3_DP",
           "/USB/USB4_DN",
-          "/USB/USB4_DP",
-          "/USB/USBUART_DN",
-          "/USB/USBUART_DP"
+          "/USB/USB4_DP"
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
@@ -816,12 +814,10 @@
           "/Power/VSYS_5V",
           "/Storage/VDD_SD2",
           "/Storage/eMMC_VDDI",
-          "/USB/CH343_V3",
           "/USB/USB1_VBUS",
           "/USB/USB2_VBUS",
           "/USB/USB3_VBUS",
           "/USB/USB4_VBUS",
-          "/USB/VDD_UART_5V",
           "/i.MX8MM Power/MIPI_VREG_CAP",
           "GND",
           "GNDPWR",
