@@ -5659,7 +5659,7 @@
     (property "Datasheet" "https://media-www.micron.com/-/media/client/global/documents/products/data-sheet/dram/mobile-dram/low-power-dram/lpddr4/200b_z11m_non_auto_lpddr4_lpddr4x.pdf?rev=3a9658f2622d43c4ae5713671b1e9e43" (id 3) (at 238.76 226.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "MPN" "MT53D512M32D2DS-053WT:D" (id 4) (at 238.76 111.76 0)
+    (property "MPN" "MT53D1024M32D4DT-046 WT:D" (id 4) (at 238.76 111.76 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "A1" (uuid 4b2371e8-bd50-495e-aa11-35444d01d6f9))
