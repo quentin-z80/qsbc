@@ -45,7 +45,7 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.254
+          "min_clearance": 0.09999999999999999
         }
       },
       "diff_pair_dimensions": [
@@ -142,7 +142,7 @@
         0.0762,
         0.08,
         0.11,
-        0.18,
+        0.2,
         0.4,
         0.8,
         1.0,
@@ -163,7 +163,7 @@
           "drill": 0.35
         }
       ],
-      "zones_allow_external_fillets": false,
+      "zones_allow_external_fillets": true,
       "zones_use_no_outline": true
     },
     "layer_presets": []
@@ -826,7 +826,7 @@
         ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.18,
+        "track_width": 0.2,
         "via_diameter": 0.4,
         "via_drill": 0.2,
         "wire_width": 6.0
@@ -842,7 +842,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "specctra_dsn": "",
+      "specctra_dsn": "../../../../tmp/qsbc.dsn",
       "step": "",
       "vrml": ""
     },
