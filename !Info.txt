@@ -15,17 +15,19 @@
 \-----------------------------------------------------------------------------------------------------------------------------------/
 
 PCB Thickness - 1.2mm +/- 10%
+Size: 80x80mm
+Layers: 8
 Min Trace Width / Space: 0.762mm
-Min Via: 0.2mm drill 0.4mm pad
+Min Via: 0.2mm drill, 0.4mm pad
 Plating: ENIG
 Soldermask: Green
-Silkscreen: White
+Silkscreen: White, Top and Bottom
 
 Stackup:
 
 /--------------------------------------------------\
 |         |            |        |           |      |
-|  Layer  |  Material  |  Type  | Thickness |  Er  |
+|  Layer  |  Material  |  Type  | Thickness |  Dk  |
 |         |            |        |           |      |
 |--------------------------------------------------|
 |   L1    |   Copper   | Signal |  1oz      |      |

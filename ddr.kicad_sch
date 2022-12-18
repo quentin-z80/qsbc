@@ -6,7 +6,8 @@
 
   (title_block
     (title "QSBC")
-    (rev "1")
+    (date "2022-12-01")
+    (rev "1.0")
     (company "Q-LAB")
   )
 
@@ -5653,7 +5654,7 @@
     (uuid fb06c466-11dd-4106-bf14-96149c3b3292)
     (property "Reference" "U2" (id 0) (at 238.76 30.48 0))
     (property "Value" "MT53D1024M32D4DT" (id 1) (at 238.76 33.02 0))
-    (property "Footprint" "Package_BGA:BGA-200_10.0x14.5mm_Layout12x22_P0.80x0.65mm" (id 2) (at 238.76 229.87 0)
+    (property "Footprint" "qsbc:BGA-200_10.0x14.5mm_Layout12x22_P0.80x0.65mm" (id 2) (at 238.76 229.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://media-www.micron.com/-/media/client/global/documents/products/data-sheet/dram/mobile-dram/low-power-dram/lpddr4/200b_z11m_non_auto_lpddr4_lpddr4x.pdf?rev=3a9658f2622d43c4ae5713671b1e9e43" (id 3) (at 238.76 226.06 0)

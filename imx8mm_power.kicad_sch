@@ -6,7 +6,8 @@
 
   (title_block
     (title "QSBC")
-    (rev "1")
+    (date "2022-12-01")
+    (rev "1.0")
     (company "Q-LAB")
   )
 

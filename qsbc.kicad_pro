@@ -45,7 +45,7 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.09999999999999999
+          "min_clearance": 0.127
         }
       },
       "diff_pair_dimensions": [
@@ -820,7 +820,6 @@
           "/USB/USB4_VBUS",
           "/i.MX8MM Power/MIPI_VREG_CAP",
           "GND",
-          "GNDPWR",
           "VDD_1.8V",
           "VDD_3.3V"
         ],

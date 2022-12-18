@@ -6,7 +6,8 @@
 
   (title_block
     (title "QSBC")
-    (rev "1")
+    (date "2022-12-01")
+    (rev "1.0")
     (company "Q-LAB")
   )
 
@@ -2955,7 +2956,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 9e2e27fa-e52a-4c54-920a-4d19f56de02e)
   )
-  (text "1.1V -> 1.2V 3A\n" (at 196.85 139.7 0)
+  (text "1.1V 3A\n" (at 196.85 139.7 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid c1d993f0-8c7d-4e63-bc1c-d51185ecab3f)
   )
