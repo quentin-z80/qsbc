@@ -2921,7 +2921,7 @@
       (reference "D5") (unit 1) (value "LED_Green") (footprint "LED_SMD:LED_0603_1608Metric")
     )
     (path "/996c4a6c-0366-4ef4-ac11-a39cf582fa19/794b8f6d-0801-4554-a02a-862ee8ae03ea"
-      (reference "D6") (unit 1) (value "LED_Red") (footprint "LED_SMD:LED_0603_1608Metric")
+      (reference "D6") (unit 1) (value "LED_Blue") (footprint "LED_SMD:LED_0603_1608Metric")
     )
     (path "/34bccd39-4b2a-4598-80fe-08cfc5b119de/1d5039c7-9dd9-416c-83e3-5875cb4a5143"
       (reference "D7") (unit 1) (value "BAT54XV2T1G") (footprint "Diode_SMD:D_SOD-523")
@@ -3719,7 +3719,7 @@
       (reference "U31") (unit 2) (value "EMMC") (footprint "qsbc:FBGA-153")
     )
     (path "/23aba2cb-1578-4c7b-a15c-a599737ba9cc/8d5504af-778a-4977-888f-95c3e0373376"
-      (reference "U32") (unit 1) (value "SN74AXCH4T245RSV") (footprint "qsbc:UQFN-16_1.6x2.4_Pitch0.4mm")
+      (reference "U32") (unit 1) (value "74AXCH4T245") (footprint "qsbc:UQFN-16_1.6x2.4_Pitch0.4mm")
     )
     (path "/23aba2cb-1578-4c7b-a15c-a599737ba9cc/be4f6f02-d4ef-4205-89db-bfd19236d4c9"
       (reference "U33") (unit 1) (value "TCA9803") (footprint "Package_SO:VSSOP-8_3.0x3.0mm_P0.65mm")

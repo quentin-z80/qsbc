@@ -4325,7 +4325,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 234.95 35.56 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid 4f58a687-720c-4c31-87de-c45c148879aa)
     (property "Reference" "R105" (id 0) (at 237.49 34.2899 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -4763,7 +4763,7 @@
   )
 
   (symbol (lib_id "Connector:Conn_ARM_JTAG_SWD_10") (at 129.54 165.1 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid f668b5c1-1bb9-4fd0-bb6a-fdd053ad2791)
     (property "Reference" "J7" (id 0) (at 121.92 151.13 0)
       (effects (font (size 1.27 1.27)) (justify right))

@@ -5368,7 +5368,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 181.61 60.96 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid 35a7f093-f5d9-4dcc-b870-03d79ebd5ab9)
     (property "Reference" "R8" (id 0) (at 184.15 59.6899 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -5458,7 +5458,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 171.45 137.16 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid 902a2a23-24bb-4f95-baae-3612a406f232)
     (property "Reference" "R6" (id 0) (at 173.99 135.8899 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -5484,7 +5484,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 171.45 60.96 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid 980c5970-94b8-4cc2-a61e-9753663a0e60)
     (property "Reference" "R5" (id 0) (at 173.99 59.6899 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -5510,7 +5510,7 @@
   )
 
   (symbol (lib_id "Device:R") (at 181.61 137.16 0) (unit 1)
-    (in_bom yes) (on_board yes)
+    (in_bom no) (on_board yes)
     (uuid a024a57c-05ba-4d0d-9b56-089f6d90d3da)
     (property "Reference" "R9" (id 0) (at 184.15 135.8899 0)
       (effects (font (size 1.27 1.27)) (justify left))
