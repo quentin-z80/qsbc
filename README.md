@@ -23,7 +23,7 @@
 1. Get `u-boot`
 
     ```
-    git clone git@gitlab.com:quentin-z80/u-boot.git
+    git clone https://gitlab.com/quentin-z80/u-boot.git
     ```
 
 2. Build `TF-A`
