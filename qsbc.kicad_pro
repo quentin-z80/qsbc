@@ -478,7 +478,6 @@
           "/Displayport/I2C1_SCL",
           "/Displayport/I2C1_SDA",
           "/Displayport/TEST2",
-          "/Displayport/~{DSI86_EN}",
           "/Ethernet/ENET_LED0",
           "/Ethernet/ENET_LED1",
           "/Ethernet/ENET_LED2",

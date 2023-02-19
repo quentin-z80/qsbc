@@ -3275,7 +3275,7 @@
       (reference "R93") (unit 1) (value "2.2K") (footprint "qsbc:R_0402_1005Metric")
     )
     (path "/996c4a6c-0366-4ef4-ac11-a39cf582fa19/32d88a30-c4ce-49ad-bd27-04238377be06"
-      (reference "R94") (unit 1) (value "2.2K") (footprint "qsbc:R_0402_1005Metric")
+      (reference "R94") (unit 1) (value "10K") (footprint "qsbc:R_0402_1005Metric")
     )
     (path "/34bccd39-4b2a-4598-80fe-08cfc5b119de/692edddc-3141-4653-aa4d-57411e57caf4"
       (reference "R95") (unit 1) (value "100K") (footprint "qsbc:R_0402_1005Metric")
