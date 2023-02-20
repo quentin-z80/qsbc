@@ -1,5 +1,6 @@
 {
   "board": {
+    "3dviewports": [],
     "design_settings": {
       "defaults": {
         "board_outline_line_width": 0.09999999999999999,
@@ -70,27 +71,36 @@
           "width": 0.1
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "hole_clearance|175160000|102737500|a09866fc-d5af-4e32-b9dd-b686d75e96be|d3a25b8b-0509-469a-9050-88d3bffc70cd",
+        "solder_mask_bridge|173339824|100679640|a09866fc-d5af-4e32-b9dd-b686d75e96be|d3a25b8b-0509-469a-9050-88d3bffc70cd"
+      ],
       "meta": {
         "version": 2
       },
       "rule_severities": {
         "annular_width": "error",
         "clearance": "error",
+        "connection_width": "warning",
         "copper_edge_clearance": "error",
+        "copper_sliver": "warning",
         "courtyards_overlap": "error",
         "diff_pair_gap_out_of_range": "error",
         "diff_pair_uncoupled_length_too_long": "error",
         "drill_out_of_range": "error",
         "duplicate_footprints": "warning",
         "extra_footprint": "warning",
-        "footprint_type_mismatch": "error",
+        "footprint": "error",
+        "footprint_type_mismatch": "ignore",
         "hole_clearance": "error",
         "hole_near_hole": "error",
         "invalid_outline": "error",
+        "isolated_copper": "warning",
         "item_on_disabled_layer": "error",
         "items_not_allowed": "error",
         "length_out_of_range": "error",
+        "lib_footprint_issues": "warning",
+        "lib_footprint_mismatch": "warning",
         "malformed_courtyard": "error",
         "microvia_drill_out_of_range": "error",
         "missing_courtyard": "ignore",
@@ -100,9 +110,14 @@
         "padstack": "error",
         "pth_inside_courtyard": "ignore",
         "shorting_items": "error",
+        "silk_edge_clearance": "ignore",
         "silk_over_copper": "ignore",
         "silk_overlap": "ignore",
         "skew_out_of_range": "error",
+        "solder_mask_bridge": "error",
+        "starved_thermal": "error",
+        "text_height": "warning",
+        "text_thickness": "warning",
         "through_hole_pad_without_hole": "error",
         "too_many_vias": "error",
         "track_dangling": "warning",
@@ -111,7 +126,6 @@
         "unconnected_items": "error",
         "unresolved_variable": "error",
         "via_dangling": "warning",
-        "zone_has_empty_net": "error",
         "zones_intersect": "error"
       },
       "rules": {
@@ -119,20 +133,65 @@
         "allow_microvias": false,
         "max_error": 0.005,
         "min_clearance": 0.07619999999999999,
+        "min_connection": 0.0,
         "min_copper_edge_clearance": 0.381,
         "min_hole_clearance": 0.127,
         "min_hole_to_hole": 0.127,
         "min_microvia_diameter": 0.2032,
         "min_microvia_drill": 0.1016,
+        "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
+        "min_text_height": 0.6,
+        "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.19999999999999998,
         "min_track_width": 0.07619999999999999,
         "min_via_annular_width": 0.09999999999999999,
         "min_via_diameter": 0.39999999999999997,
         "solder_mask_clearance": 0.0,
         "solder_mask_min_width": 0.0,
+        "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
+      "teardrop_options": [
+        {
+          "td_allow_use_two_tracks": true,
+          "td_curve_segcount": 5,
+          "td_on_pad_in_zone": false,
+          "td_onpadsmd": true,
+          "td_onroundshapesonly": false,
+          "td_ontrackend": false,
+          "td_onviapad": true
+        }
+      ],
+      "teardrop_parameters": [
+        {
+          "td_curve_segcount": 0,
+          "td_height_ratio": 1.0,
+          "td_length_ratio": 0.5,
+          "td_maxheight": 2.0,
+          "td_maxlen": 1.0,
+          "td_target_name": "td_round_shape",
+          "td_width_to_size_filter_ratio": 0.9
+        },
+        {
+          "td_curve_segcount": 0,
+          "td_height_ratio": 1.0,
+          "td_length_ratio": 0.5,
+          "td_maxheight": 2.0,
+          "td_maxlen": 1.0,
+          "td_target_name": "td_rect_shape",
+          "td_width_to_size_filter_ratio": 0.9
+        },
+        {
+          "td_curve_segcount": 0,
+          "td_height_ratio": 1.0,
+          "td_length_ratio": 0.5,
+          "td_maxheight": 2.0,
+          "td_maxlen": 1.0,
+          "td_target_name": "td_track_end",
+          "td_width_to_size_filter_ratio": 0.9
+        }
+      ],
       "track_widths": [
         0.0,
         0.0762,
@@ -162,7 +221,8 @@
       "zones_allow_external_fillets": true,
       "zones_use_no_outline": true
     },
-    "layer_presets": []
+    "layer_presets": [],
+    "viewports": []
   },
   "boards": [],
   "cvpcb": {
@@ -346,18 +406,23 @@
     "rule_severities": {
       "bus_definition_conflict": "error",
       "bus_entry_needed": "error",
-      "bus_label_syntax": "error",
       "bus_to_bus_conflict": "error",
       "bus_to_net_conflict": "error",
+      "conflicting_netclasses": "error",
       "different_unit_footprint": "error",
       "different_unit_net": "error",
       "duplicate_reference": "error",
       "duplicate_sheet_names": "error",
+      "endpoint_off_grid": "warning",
       "extra_units": "error",
       "global_label_dangling": "warning",
       "hier_label_mismatch": "error",
       "label_dangling": "error",
       "lib_symbol_issues": "warning",
+      "missing_bidi_pin": "warning",
+      "missing_input_pin": "warning",
+      "missing_power_pin": "error",
+      "missing_unit": "warning",
       "multiple_net_names": "warning",
       "net_not_bus_member": "warning",
       "no_connect_connected": "warning",
@@ -367,6 +432,7 @@
       "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "similar_labels": "warning",
+      "simulation_model_issue": "error",
       "unannotated": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
@@ -386,7 +452,7 @@
   "net_settings": {
     "classes": [
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.0762,
         "diff_pair_gap": 0.13,
         "diff_pair_via_gap": 0.25,
@@ -400,10 +466,10 @@
         "track_width": 0.11,
         "via_diameter": 0.4,
         "via_drill": 0.2,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.0762,
         "diff_pair_gap": 0.15,
         "diff_pair_via_gap": 0.25,
@@ -412,55 +478,15 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "100R_DIFF",
-        "nets": [
-          "/Displayport/DP_AUX_N",
-          "/Displayport/DP_AUX_P",
-          "/Displayport/DP_AUX_R_N",
-          "/Displayport/DP_AUX_R_P",
-          "/Displayport/DSI_CLK_N",
-          "/Displayport/DSI_CLK_P",
-          "/Displayport/DSI_D0_N",
-          "/Displayport/DSI_D0_P",
-          "/Displayport/DSI_D1_N",
-          "/Displayport/DSI_D1_P",
-          "/Displayport/DSI_D2_N",
-          "/Displayport/DSI_D2_P",
-          "/Displayport/DSI_D3_N",
-          "/Displayport/DSI_D3_P",
-          "/Displayport/ML0_N",
-          "/Displayport/ML0_P",
-          "/Displayport/ML0_R_N",
-          "/Displayport/ML0_R_P",
-          "/Displayport/ML1_N",
-          "/Displayport/ML1_P",
-          "/Displayport/ML1_R_N",
-          "/Displayport/ML1_R_P",
-          "/Displayport/ML2_N",
-          "/Displayport/ML2_P",
-          "/Displayport/ML2_R_N",
-          "/Displayport/ML2_R_P",
-          "/Displayport/ML3_N",
-          "/Displayport/ML3_P",
-          "/Displayport/ML3_R_N",
-          "/Displayport/ML3_R_P",
-          "/Ethernet/TRD0_N",
-          "/Ethernet/TRD0_P",
-          "/Ethernet/TRD1_N",
-          "/Ethernet/TRD1_P",
-          "/Ethernet/TRD2_N",
-          "/Ethernet/TRD2_P",
-          "/Ethernet/TRD3_N",
-          "/Ethernet/TRD3_P"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.08,
         "via_diameter": 0.4,
         "via_drill": 0.2,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.0762,
         "diff_pair_gap": 0.13,
         "diff_pair_via_gap": 0.25,
@@ -469,158 +495,15 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "50R",
-        "nets": [
-          "/Displayport/DP_CONFIG1",
-          "/Displayport/DP_CONFIG2",
-          "/Displayport/DP_HPD",
-          "/Displayport/DSI86_INT",
-          "/Displayport/DSI86_REFCLK",
-          "/Displayport/I2C1_SCL",
-          "/Displayport/I2C1_SDA",
-          "/Displayport/TEST2",
-          "/Ethernet/ENET_LED0",
-          "/Ethernet/ENET_LED1",
-          "/Ethernet/ENET_LED2",
-          "/Ethernet/ENET_MDC",
-          "/Ethernet/ENET_MDIO",
-          "/Ethernet/ENET_RD0",
-          "/Ethernet/ENET_RD1",
-          "/Ethernet/ENET_RD2",
-          "/Ethernet/ENET_RD3",
-          "/Ethernet/ENET_RXC",
-          "/Ethernet/ENET_RX_CTL",
-          "/Ethernet/ENET_TD0",
-          "/Ethernet/ENET_TD1",
-          "/Ethernet/ENET_TD2",
-          "/Ethernet/ENET_TD3",
-          "/Ethernet/ENET_TXC",
-          "/Ethernet/ENET_TX_CTL",
-          "/Ethernet/XTAL_IN",
-          "/Ethernet/XTAL_OUT",
-          "/Ethernet/~{ENET_INT}",
-          "/Ethernet/~{ENET_RESET}",
-          "/Misc/24M_XTALI",
-          "/Misc/24M_XTALO",
-          "/Misc/BOOT_MODE0",
-          "/Misc/BOOT_MODE1",
-          "/Misc/CLK_32K_OUT",
-          "/Misc/JTAG_MOD",
-          "/Misc/JTAG_TCK",
-          "/Misc/JTAG_TDI",
-          "/Misc/JTAG_TDO",
-          "/Misc/JTAG_TMS",
-          "/Misc/ONOFF",
-          "/Misc/PMIC_ON_REQ",
-          "/Misc/PMIC_STBY_REQ",
-          "/Misc/RTC_XTALO",
-          "/Misc/TEST_MODE",
-          "/Misc/TS_RES_EXT",
-          "/Misc/~{JTAG_TRST}",
-          "/Misc/~{POR}",
-          "/Misc/~{RTC_RESET}",
-          "/PCIe/~{M2_CLKREQ_3.3V}",
-          "/PCIe/~{M2_RESET_3.3V}",
-          "/PCIe/~{M2_RESET}",
-          "/PCIe/~{M2_WAKE_3.3V}",
-          "/PCIe/~{M2_WAKE}",
-          "/Peripherals/BT_CFG0",
-          "/Peripherals/BT_CFG1",
-          "/Peripherals/BT_CFG10",
-          "/Peripherals/BT_CFG11",
-          "/Peripherals/BT_CFG12",
-          "/Peripherals/BT_CFG13",
-          "/Peripherals/BT_CFG14",
-          "/Peripherals/BT_CFG15",
-          "/Peripherals/BT_CFG2",
-          "/Peripherals/BT_CFG3",
-          "/Peripherals/BT_CFG4",
-          "/Peripherals/BT_CFG5",
-          "/Peripherals/BT_CFG6",
-          "/Peripherals/BT_CFG7",
-          "/Peripherals/BT_CFG8",
-          "/Peripherals/BT_CFG9",
-          "/Peripherals/I2C2_SCL",
-          "/Peripherals/I2C2_SCL_3.3V",
-          "/Peripherals/I2C2_SDA",
-          "/Peripherals/I2C2_SDA_3.3V",
-          "/Peripherals/I2C4_SCL",
-          "/Peripherals/I2C4_SDA",
-          "/Peripherals/SD2_VSELECT",
-          "/Peripherals/UART2_CTS",
-          "/Peripherals/UART2_RTS",
-          "/Peripherals/UART2_RXI",
-          "/Peripherals/UART2_TXO",
-          "/Peripherals/UART4_CTS",
-          "/Peripherals/UART4_CTS_3.3V",
-          "/Peripherals/UART4_RTS",
-          "/Peripherals/UART4_RTS_3.3V",
-          "/Peripherals/UART4_RXI",
-          "/Peripherals/UART4_RXI_3.3V",
-          "/Peripherals/UART4_TXO",
-          "/Peripherals/UART4_TXO_3.3V",
-          "/Peripherals/USB1_VBUS_EN",
-          "/Peripherals/USB2_VBUS_EN",
-          "/Peripherals/~{INA_ALERT}",
-          "/Peripherals/~{PMIC_INT}",
-          "/Peripherals/~{USB1_INT}",
-          "/Peripherals/~{USB1_VBUS_FLT}",
-          "/Peripherals/~{USB2_INT}",
-          "/Peripherals/~{USB2_VBUS_FLT}",
-          "/Peripherals/~{WDOG}",
-          "/Power/~{PWRON}",
-          "/Storage/LED0",
-          "/Storage/LED1",
-          "/Storage/QSPI_CLK",
-          "/Storage/QSPI_DATA0",
-          "/Storage/QSPI_DATA1",
-          "/Storage/QSPI_DATA2",
-          "/Storage/QSPI_DATA3",
-          "/Storage/SD2_CLK",
-          "/Storage/SD2_CLK_R",
-          "/Storage/SD2_CMD",
-          "/Storage/SD2_DATA0",
-          "/Storage/SD2_DATA1",
-          "/Storage/SD2_DATA2",
-          "/Storage/SD2_DATA3",
-          "/Storage/SD3_CLK",
-          "/Storage/SD3_CLK_R",
-          "/Storage/SD3_CMD",
-          "/Storage/SD3_DATA0",
-          "/Storage/SD3_DATA1",
-          "/Storage/SD3_DATA2",
-          "/Storage/SD3_DATA3",
-          "/Storage/SD3_DATA4",
-          "/Storage/SD3_DATA5",
-          "/Storage/SD3_DATA6",
-          "/Storage/SD3_DATA7",
-          "/Storage/SD3_STROBE",
-          "/Storage/~{QSPI_CS0}",
-          "/Storage/~{SD2_CD}",
-          "/Storage/~{SD2_RESET}",
-          "/Storage/~{SD3_RESET_R}",
-          "/Storage/~{SD3_RESET}",
-          "/USB/USB1_CC1",
-          "/USB/USB1_CC2",
-          "/USB/USB1_ID",
-          "/USB/USB1_VBUS_EN_R",
-          "/USB/USB2_CC1",
-          "/USB/USB2_CC2",
-          "/USB/USB2_ID",
-          "/USB/USB2_VBUS_EN_R",
-          "/USB/USB3_CC1",
-          "/USB/USB3_CC2",
-          "/USB/USB4_CC1",
-          "/USB/USB4_CC2"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.11,
         "via_diameter": 0.4,
         "via_drill": 0.2,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.0762,
         "diff_pair_gap": 0.15,
         "diff_pair_via_gap": 0.25,
@@ -629,39 +512,15 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "85R_DIFF",
-        "nets": [
-          "/DDR/DRAM_CK_A_N",
-          "/DDR/DRAM_CK_A_P",
-          "/DDR/DRAM_CK_B_N",
-          "/DDR/DRAM_CK_B_P",
-          "/DDR/DRAM_DQS0_A_N",
-          "/DDR/DRAM_DQS0_A_P",
-          "/DDR/DRAM_DQS0_B_N",
-          "/DDR/DRAM_DQS0_B_P",
-          "/DDR/DRAM_DQS1_A_N",
-          "/DDR/DRAM_DQS1_A_P",
-          "/DDR/DRAM_DQS1_B_N",
-          "/DDR/DRAM_DQS1_B_P",
-          "/PCIe/M2_REFCLK_N",
-          "/PCIe/M2_REFCLK_P",
-          "/PCIe/PCIE_REFCLK_N",
-          "/PCIe/PCIE_REFCLK_P",
-          "/PCIe/PCIE_RX_N",
-          "/PCIe/PCIE_RX_P",
-          "/PCIe/PCIE_TX_N",
-          "/PCIe/PCIE_TX_P",
-          "/PCIe/PCIE_TX_R_N",
-          "/PCIe/PCIE_TX_R_P"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.11,
         "via_diameter": 0.4,
         "via_drill": 0.2,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.0762,
         "diff_pair_gap": 0.15,
         "diff_pair_via_gap": 0.25,
@@ -670,25 +529,15 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "90R_DIFF",
-        "nets": [
-          "/USB/USB1_DN",
-          "/USB/USB1_DP",
-          "/USB/USB2_DN",
-          "/USB/USB2_DP",
-          "/USB/USB3_DN",
-          "/USB/USB3_DP",
-          "/USB/USB4_DN",
-          "/USB/USB4_DP"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.1,
         "via_diameter": 0.4,
         "via_drill": 0.2,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.0762,
         "diff_pair_gap": 0.13,
         "diff_pair_via_gap": 0.25,
@@ -697,75 +546,15 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "DDR_50R",
-        "nets": [
-          "/DDR/DRAM_CA0_A",
-          "/DDR/DRAM_CA0_B",
-          "/DDR/DRAM_CA1_A",
-          "/DDR/DRAM_CA1_B",
-          "/DDR/DRAM_CA2_A",
-          "/DDR/DRAM_CA2_B",
-          "/DDR/DRAM_CA3_A",
-          "/DDR/DRAM_CA3_B",
-          "/DDR/DRAM_CA4_A",
-          "/DDR/DRAM_CA4_B",
-          "/DDR/DRAM_CA5_A",
-          "/DDR/DRAM_CA5_B",
-          "/DDR/DRAM_CKE0_A",
-          "/DDR/DRAM_CKE0_B",
-          "/DDR/DRAM_CKE1_A",
-          "/DDR/DRAM_CKE1_B",
-          "/DDR/DRAM_D00_A",
-          "/DDR/DRAM_D00_B",
-          "/DDR/DRAM_D01_A",
-          "/DDR/DRAM_D01_B",
-          "/DDR/DRAM_D02_A",
-          "/DDR/DRAM_D02_B",
-          "/DDR/DRAM_D03_A",
-          "/DDR/DRAM_D03_B",
-          "/DDR/DRAM_D04_A",
-          "/DDR/DRAM_D04_B",
-          "/DDR/DRAM_D05_A",
-          "/DDR/DRAM_D05_B",
-          "/DDR/DRAM_D06_A",
-          "/DDR/DRAM_D06_B",
-          "/DDR/DRAM_D07_A",
-          "/DDR/DRAM_D07_B",
-          "/DDR/DRAM_D08_A",
-          "/DDR/DRAM_D08_B",
-          "/DDR/DRAM_D09_A",
-          "/DDR/DRAM_D09_B",
-          "/DDR/DRAM_D10_A",
-          "/DDR/DRAM_D10_B",
-          "/DDR/DRAM_D11_A",
-          "/DDR/DRAM_D11_B",
-          "/DDR/DRAM_D12_A",
-          "/DDR/DRAM_D12_B",
-          "/DDR/DRAM_D13_A",
-          "/DDR/DRAM_D13_B",
-          "/DDR/DRAM_D14_A",
-          "/DDR/DRAM_D14_B",
-          "/DDR/DRAM_D15_A",
-          "/DDR/DRAM_D15_B",
-          "/DDR/DRAM_DMI0_A",
-          "/DDR/DRAM_DMI0_B",
-          "/DDR/DRAM_DMI1_A",
-          "/DDR/DRAM_DMI1_B",
-          "/DDR/DRAM_ZN",
-          "/DDR/~{DRAM_CS0_A}",
-          "/DDR/~{DRAM_CS0_B}",
-          "/DDR/~{DRAM_CS1_A}",
-          "/DDR/~{DRAM_CS1_B}",
-          "/DDR/~{DRAM_RESET}"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.11,
         "via_diameter": 0.4,
         "via_drill": 0.2,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.0762,
         "diff_pair_gap": 0.13,
         "diff_pair_via_gap": 0.25,
@@ -774,62 +563,1257 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "Power",
-        "nets": [
-          "/DDR Power/VDD_DRAM_1.1V",
-          "/DDR/PHY_VREF",
-          "/Displayport/DP_SHIELD",
-          "/Displayport/VDDA_DSI86_1.2V",
-          "/Displayport/VDD_DSI86_1.2V",
-          "/Displayport/VDD_DSI86_1.2V_OUT",
-          "/Displayport/VDD_DSI86_PLL_1.8V",
-          "/Ethernet/AVDD_ENET_1V",
-          "/Ethernet/AVDD_ENET_3.3V",
-          "/Ethernet/DVDD_ENET_1V",
-          "/Ethernet/DVDD_ENET_3.3V",
-          "/Ethernet/NVCC_ENET_1.8V",
-          "/Ethernet/VDD_ENET_1V",
-          "/Misc/NVCC_SNVS_1.8V",
-          "/Misc/VDD_SNVS_0.8V",
-          "/PCIe/PCIE_RESREF",
-          "/Power/BUCK1_LX",
-          "/Power/BUCK2_LX",
-          "/Power/BUCK5_LX",
-          "/Power/BUCK6_LX",
-          "/Power/BUCK7_LX",
-          "/Power/BUCK8_LX",
-          "/Power/INTLDO_1.5V",
-          "/Power/LDO5_3.3V",
-          "/Power/NVCC_SD2",
-          "/Power/VDDA_1.8V",
-          "/Power/VDD_ARM_0.9V",
-          "/Power/VDD_DRAM_xPU_0.9V",
-          "/Power/VDD_PHY_0.9V",
-          "/Power/VDD_PHY_1.2V",
-          "/Power/VDD_SOC_0.8V",
-          "/Power/VSYS_5V",
-          "/Storage/VDD_SD2",
-          "/Storage/eMMC_VDDI",
-          "/USB/USB1_VBUS",
-          "/USB/USB2_VBUS",
-          "/USB/USB3_VBUS",
-          "/USB/USB4_VBUS",
-          "/i.MX8MM Power/MIPI_VREG_CAP",
-          "GND",
-          "VDD_1.8V",
-          "VDD_3.3V"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
         "via_diameter": 0.4,
         "via_drill": 0.2,
-        "wire_width": 6.0
+        "wire_width": 6
       }
     ],
     "meta": {
-      "version": 2
+      "version": 3
     },
-    "net_colors": null
+    "net_colors": null,
+    "netclass_assignments": null,
+    "netclass_patterns": [
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DP_AUX_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DP_AUX_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DP_AUX_R_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DP_AUX_R_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DSI_CLK_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DSI_CLK_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DSI_D0_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DSI_D0_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DSI_D1_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DSI_D1_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DSI_D2_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DSI_D2_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DSI_D3_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/DSI_D3_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML0_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML0_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML0_R_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML0_R_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML1_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML1_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML1_R_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML1_R_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML2_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML2_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML2_R_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML2_R_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML3_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML3_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML3_R_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Displayport/ML3_R_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Ethernet/TRD0_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Ethernet/TRD0_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Ethernet/TRD1_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Ethernet/TRD1_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Ethernet/TRD2_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Ethernet/TRD2_P"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Ethernet/TRD3_N"
+      },
+      {
+        "netclass": "100R_DIFF",
+        "pattern": "/Ethernet/TRD3_P"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Displayport/DP_CONFIG1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Displayport/DP_CONFIG2"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Displayport/DP_HPD"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Displayport/DSI86_INT"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Displayport/DSI86_REFCLK"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Displayport/I2C1_SCL"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Displayport/I2C1_SDA"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Displayport/TEST2"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_LED0"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_LED1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_LED2"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_MDC"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_MDIO"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_RD0"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_RD1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_RD2"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_RD3"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_RXC"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_RX_CTL"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_TD0"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_TD1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_TD2"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_TD3"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_TXC"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/ENET_TX_CTL"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/XTAL_IN"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/XTAL_OUT"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/~{ENET_INT}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Ethernet/~{ENET_RESET}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/24M_XTALI"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/24M_XTALO"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/BOOT_MODE0"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/BOOT_MODE1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/CLK_32K_OUT"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/JTAG_MOD"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/JTAG_TCK"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/JTAG_TDI"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/JTAG_TDO"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/JTAG_TMS"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/ONOFF"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/PMIC_ON_REQ"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/PMIC_STBY_REQ"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/RTC_XTALO"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/TEST_MODE"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/TS_RES_EXT"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/~{JTAG_TRST}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/~{POR}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Misc/~{RTC_RESET}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/PCIe/~{M2_CLKREQ_3.3V}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/PCIe/~{M2_RESET_3.3V}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/PCIe/~{M2_RESET}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/PCIe/~{M2_WAKE_3.3V}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/PCIe/~{M2_WAKE}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG0"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG10"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG11"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG12"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG13"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG14"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG15"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG2"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG3"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG4"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG5"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG6"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG7"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG8"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/BT_CFG9"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/I2C2_SCL"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/I2C2_SCL_3.3V"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/I2C2_SDA"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/I2C2_SDA_3.3V"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/I2C4_SCL"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/I2C4_SDA"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/SD2_VSELECT"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/UART2_CTS"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/UART2_RTS"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/UART2_RXI"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/UART2_TXO"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/UART4_CTS"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/UART4_CTS_3.3V"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/UART4_RTS"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/UART4_RTS_3.3V"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/UART4_RXI"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/UART4_RXI_3.3V"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/UART4_TXO"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/UART4_TXO_3.3V"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/USB1_VBUS_EN"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/USB2_VBUS_EN"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/~{INA_ALERT}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/~{PMIC_INT}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/~{USB1_INT}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/~{USB1_VBUS_FLT}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/~{USB2_INT}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/~{USB2_VBUS_FLT}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Peripherals/~{WDOG}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Power/~{PWRON}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/LED0"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/LED1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/QSPI_CLK"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/QSPI_DATA0"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/QSPI_DATA1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/QSPI_DATA2"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/QSPI_DATA3"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD2_CLK"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD2_CLK_R"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD2_CMD"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD2_DATA0"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD2_DATA1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD2_DATA2"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD2_DATA3"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD3_CLK"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD3_CLK_R"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD3_CMD"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD3_DATA0"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD3_DATA1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD3_DATA2"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD3_DATA3"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD3_DATA4"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD3_DATA5"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD3_DATA6"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD3_DATA7"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/SD3_STROBE"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/~{QSPI_CS0}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/~{SD2_CD}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/~{SD2_RESET}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/~{SD3_RESET_R}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/Storage/~{SD3_RESET}"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/USB/USB1_CC1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/USB/USB1_CC2"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/USB/USB1_ID"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/USB/USB1_VBUS_EN_R"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/USB/USB2_CC1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/USB/USB2_CC2"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/USB/USB2_ID"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/USB/USB2_VBUS_EN_R"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/USB/USB3_CC1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/USB/USB3_CC2"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/USB/USB4_CC1"
+      },
+      {
+        "netclass": "50R",
+        "pattern": "/USB/USB4_CC2"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/DDR/DRAM_CK_A_N"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/DDR/DRAM_CK_A_P"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/DDR/DRAM_CK_B_N"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/DDR/DRAM_CK_B_P"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/DDR/DRAM_DQS0_A_N"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/DDR/DRAM_DQS0_A_P"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/DDR/DRAM_DQS0_B_N"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/DDR/DRAM_DQS0_B_P"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/DDR/DRAM_DQS1_A_N"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/DDR/DRAM_DQS1_A_P"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/DDR/DRAM_DQS1_B_N"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/DDR/DRAM_DQS1_B_P"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/PCIe/M2_REFCLK_N"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/PCIe/M2_REFCLK_P"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/PCIe/PCIE_REFCLK_N"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/PCIe/PCIE_REFCLK_P"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/PCIe/PCIE_RX_N"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/PCIe/PCIE_RX_P"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/PCIe/PCIE_TX_N"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/PCIe/PCIE_TX_P"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/PCIe/PCIE_TX_R_N"
+      },
+      {
+        "netclass": "85R_DIFF",
+        "pattern": "/PCIe/PCIE_TX_R_P"
+      },
+      {
+        "netclass": "90R_DIFF",
+        "pattern": "/USB/USB1_DN"
+      },
+      {
+        "netclass": "90R_DIFF",
+        "pattern": "/USB/USB1_DP"
+      },
+      {
+        "netclass": "90R_DIFF",
+        "pattern": "/USB/USB2_DN"
+      },
+      {
+        "netclass": "90R_DIFF",
+        "pattern": "/USB/USB2_DP"
+      },
+      {
+        "netclass": "90R_DIFF",
+        "pattern": "/USB/USB3_DN"
+      },
+      {
+        "netclass": "90R_DIFF",
+        "pattern": "/USB/USB3_DP"
+      },
+      {
+        "netclass": "90R_DIFF",
+        "pattern": "/USB/USB4_DN"
+      },
+      {
+        "netclass": "90R_DIFF",
+        "pattern": "/USB/USB4_DP"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CA0_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CA0_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CA1_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CA1_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CA2_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CA2_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CA3_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CA3_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CA4_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CA4_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CA5_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CA5_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CKE0_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CKE0_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CKE1_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_CKE1_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D00_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D00_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D01_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D01_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D02_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D02_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D03_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D03_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D04_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D04_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D05_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D05_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D06_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D06_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D07_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D07_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D08_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D08_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D09_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D09_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D10_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D10_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D11_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D11_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D12_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D12_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D13_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D13_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D14_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D14_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D15_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_D15_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_DMI0_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_DMI0_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_DMI1_A"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_DMI1_B"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/DRAM_ZN"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/~{DRAM_CS0_A}"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/~{DRAM_CS0_B}"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/~{DRAM_CS1_A}"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/~{DRAM_CS1_B}"
+      },
+      {
+        "netclass": "DDR_50R",
+        "pattern": "/DDR/~{DRAM_RESET}"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/DDR Power/VDD_DRAM_1.1V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/DDR/PHY_VREF"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Displayport/DP_SHIELD"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Displayport/VDDA_DSI86_1.2V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Displayport/VDD_DSI86_1.2V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Displayport/VDD_DSI86_1.2V_OUT"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Displayport/VDD_DSI86_PLL_1.8V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Ethernet/AVDD_ENET_1V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Ethernet/AVDD_ENET_3.3V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Ethernet/DVDD_ENET_1V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Ethernet/DVDD_ENET_3.3V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Ethernet/NVCC_ENET_1.8V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Ethernet/VDD_ENET_1V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Misc/NVCC_SNVS_1.8V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Misc/VDD_SNVS_0.8V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/PCIe/PCIE_RESREF"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/BUCK1_LX"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/BUCK2_LX"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/BUCK5_LX"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/BUCK6_LX"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/BUCK7_LX"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/BUCK8_LX"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/INTLDO_1.5V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/LDO5_3.3V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/NVCC_SD2"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/VDDA_1.8V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/VDD_ARM_0.9V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/VDD_DRAM_xPU_0.9V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/VDD_PHY_0.9V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/VDD_PHY_1.2V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/VDD_SOC_0.8V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/VSYS_5V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Storage/VDD_SD2"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Storage/eMMC_VDDI"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/USB/USB1_VBUS"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/USB/USB2_VBUS"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/USB/USB3_VBUS"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/USB/USB4_VBUS"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/i.MX8MM Power/MIPI_VREG_CAP"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "VDD_1.8V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "VDD_3.3V"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
@@ -845,6 +1829,8 @@
   "schematic": {
     "annotate_start_num": 0,
     "drawing": {
+      "dashed_lines_dash_length_ratio": 12.0,
+      "dashed_lines_gap_length_ratio": 3.0,
       "default_bus_thickness": 12.0,
       "default_line_thickness": 6.0,
       "default_text_size": 50.0,
@@ -878,7 +1864,11 @@
     "page_layout_descr_file": "",
     "plot_directory": "",
     "spice_adjust_passive_values": false,
+    "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
+    "spice_model_current_sheet_as_root": true,
+    "spice_save_all_currents": false,
+    "spice_save_all_voltages": false,
     "subpart_first_id": 65,
     "subpart_id_separator": 0
   },
