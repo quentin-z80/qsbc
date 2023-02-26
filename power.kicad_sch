@@ -5505,6 +5505,9 @@
     (property "MPN" "RC0402FR-070RL" (at 341.63 154.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
+    (property "DNP" "DNP" (at 341.63 157.48 90)
+      (effects (font (size 1.27 1.27)))
+    )
     (pin "1" (uuid ecf92810-d006-44af-84fc-31ff192e191e))
     (pin "2" (uuid ced9d380-e5ba-4a56-9d31-64c0cc342559))
     (instances
