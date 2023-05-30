@@ -14447,9 +14447,6 @@
     (property "MPN" "RC0402FR-0710KL" (at 207.01 40.64 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "DNP" "DNP" (at 207.01 40.64 90)
-      (effects (font (size 1.27 1.27)) hide)
-    )
     (pin "1" (uuid 4d4981f9-c7f6-4b73-a495-ba11f9754b3f))
     (pin "2" (uuid 7691395d-e245-4f0e-8dc1-9ff054a25eff))
     (instances

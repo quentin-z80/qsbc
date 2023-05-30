@@ -12088,7 +12088,7 @@
     (property "Datasheet" "~" (at 323.85 31.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Rating" "50mW/5%" (at 330.2 35.56 0)
+    (property "Rating" "50mW/1%" (at 330.2 35.56 0)
       (effects (font (size 0.762 0.762)))
     )
     (property "MPN" "RC0402FR-0710KL" (at 323.85 31.75 0)

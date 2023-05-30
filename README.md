@@ -78,10 +78,12 @@
 ## TODO
 
 - USB-UART ICs need to have VDDIO derived from USB VBUS so they do not reset
-on board reset
+on board reset (or find a different ic)
 
 - USB VBUS fault pins need to be connected to usb phy oc pads, not gpio pins
 
 - UART1 TXO is connected to the wrong pad
 
-- Test displayport out, waiting for [imx8mm DSI support](https://lore.kernel.org/linux-arm-kernel/CAMty3ZC9TtnupJKF4LA9e-jnYMux28u4Pn3femJZXi4ogV+drA@mail.gmail.com/T/) to be mainlined
+- Test displayport out, waiting for better sn65dsi86 avalability
+
+- optimize bom, replace 0201s with 0402s where there is space / no si limitations

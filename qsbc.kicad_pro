@@ -443,7 +443,9 @@
     "pinned_footprint_libs": [
       "qsbc"
     ],
-    "pinned_symbol_libs": []
+    "pinned_symbol_libs": [
+      "qsbc"
+    ]
   },
   "meta": {
     "filename": "qsbc.kicad_pro",
